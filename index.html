@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Salesman - Palodhand</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <!-- Voice Command Button -->
+    <div class="voice-btn" id="voiceBtn" title="Voice Command">
+        <i class="fas fa-microphone"></i>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-store me-2"></i>Real Salesman
+                <small class="d-block" style="font-size: 0.6rem; opacity: 0.8;">Palodhand, Swabi</small>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-home me-1"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-shopping-cart me-1"></i> Orders
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-phone me-1"></i> Contact
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="languageToggle">
+                            <i class="fas fa-language me-1"></i> اردو
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container mt-4">
+        <!-- Search and Categories -->
+        <div class="card p-3 mb-3">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search products..." id="searchInput">
+                        <button class="btn btn-primary" type="button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <select class="form-select" id="categoryFilter">
+                        <option value="all">All Categories</option>
+                        <option value="grocery">Grocery</option>
+                        <option value="snacks">Snacks</option>
+                        <option value="beverages">Beverages</option>
+                        <option value="household">Household</option>
+                        <option value="personal-care">Personal Care</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="mt-3 d-flex flex-wrap">
+                <span class="category-badge active" data-category="all">
+                    <i class="fas fa-border-all me-1"></i> All
+                </span>
+                <span class="category-badge" data-category="grocery">
+                    <i class="fas fa-wheat-alt me-1"></i> Grocery
+                </span>
+                <span class="category-badge" data-category="snacks">
+                    <i class="fas fa-cookie me-1"></i> Snacks
+                </span>
+                <span class="category-badge" data-category="beverages">
+                    <i class="fas fa-coffee me-1"></i> Beverages
+                </span>
+                <span class="category-badge" data-category="household">
+                    <i class="fas fa-home me-1"></i> Household
+                </span>
+                <span class="category-badge" data-category="personal-care">
+                    <i class="fas fa-soap me-1"></i> Personal Care
+                </span>
+            </div>
+        </div>
+        
+        <!-- Product Grid -->
+        <h4 class="mb-3"><i class="fas fa-box-open me-2"></i>Available Products</h4>
+        <div class="row" id="productGrid">
+            <!-- Product cards will be dynamically inserted here -->
+        </div>
+        
+          <!-- Cart Summary -->
+          <div class="card p-3">
+            <h4><i class="fas fa-shopping-basket me-2"></i>Cart Summary</h4>
+            <div id="cart-empty" class="text-center py-4">
+                <i class="fas fa-shopping-basket fa-3x mb-3" style="color: #ddd;"></i>
+                <p class="text-muted">Your cart is empty</p>
+            </div>
+            <div id="cart-summary" class="mb-3"></div>
+            <div id="cart-totals" style="display: none;">
+                <div class="d-flex justify-content-between">
+                    <p><strong>Subtotal:</strong></p>
+                    <p><span id="subtotal-price">0</span> PKR</p>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <p><strong>Delivery:</strong></p>
+                    <p><span id="delivery-charge">50</span> PKR</p>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <p><strong>Total Price:</strong></p>
+                    <p><span id="total-price">0</span> PKR</p>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <p><strong>Total Profit:</strong></p>
+                    <p><span id="total-profit">0</span> PKR</p>
+                </div>
+                <button id="cancel-order" class="btn btn-danger w-100 mt-2">
+                    <i class="fas fa-trash me-2"></i>Cancel Order
+                </button>
+            </div>
+        </div>
+        
+        
+        <!-- Delivery Details -->
+        <div class="card p-3 mt-3">
+            <h4><i class="fas fa-truck me-2"></i>Delivery Details</h4>
+            <div class="mb-3">
+                <label for="customer-name" class="form-label">Customer Name</label>
+                <input type="text" class="form-control" id="customer-name" placeholder="Enter customer name">
+            </div>
+            <div class="mb-3">
+                <label for="customer-phone" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="customer-phone" placeholder="03XX-XXXXXXX">
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Delivery Address</label>
+                <div class="input-group">
+                    <input type="text" id="address" class="form-control" placeholder="Enter address or use GPS">
+                    <button class="btn btn-outline-secondary" type="button" id="getLocationBtn">
+                        <i class="fas fa-map-marker-alt"></i> GPS
+                    </button>
+                </div>
+            </div>
+            <p class="mt-2"><i class="fas fa-clock me-2"></i>Estimated Delivery Time: <strong>30-45 mins</strong></p>
+            <p><i class="fas fa-money-bill-wave me-2"></i>Delivery Charge: <strong>50 PKR</strong></p>
+            <div id="map" class="mt-3" style="height: 200px; background-color: #e9ecef; border-radius: 5px; display: flex; align-items: center; justify-content: center;">
+                <p class="text-muted"><i class="fas fa-map-marked-alt me-2"></i>Map will appear here</p>
+            </div>
+        </div>
+        
+        <!-- Order Confirmation -->
+        <div class="card p-3 mt-3 mb-5">
+            <h4><i class="fas fa-clipboard-check me-2"></i>Order Confirmation</h4>
+            <div class="mb-3">
+                <label for="payment-method" class="form-label">Payment Method</label>
+                <select id="payment-method" class="form-select">
+                    <option value="cash">Cash on Delivery</option>
+                    <option value="easypaisa">EasyPaisa (0312-3456789)</option>
+                    <option value="jazzcash">JazzCash (0312-3456789)</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="special-notes" class="form-label">Special Notes</label>
+                <textarea class="form-control" id="special-notes" rows="2" placeholder="Any special instructions..."></textarea>
+            </div>
+            <button id="confirm-order" class="btn btn-primary w-100 py-2" disabled>
+                <i class="fas fa-check-circle me-2"></i>Confirm Order
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
