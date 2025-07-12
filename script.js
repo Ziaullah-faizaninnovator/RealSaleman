@@ -1,81 +1,35 @@
 const products = [
-  // ---------- GROCERY ----------
-  { id: 1,  name: "Eggs (Dozen)",                category: "grocery",       price: 250,  profit: 30,  marketPrice: 270,  unit: "dozen",       image: "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?w=500&auto=format&fit=crop" },
-  { id: 2,  name: "Atta (Flour) 10 kg",          category: "grocery",       price: 1500, profit: 120, marketPrice: 1620, unit: "10 kg bag",   image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&auto=format&fit=crop" },
-  { id: 3,  name: "Basmati Rice 5 kg",           category: "grocery",       price: 2200, profit: 200, marketPrice: 2400, unit: "5 kg bag",    image: "https://images.unsplash.com/photo-1547496502-affa22d38842?w=500&auto=format&fit=crop" },
-  { id: 4,  name: "Sugar 1 kg",                  category: "grocery",       price: 120,  profit: 10,  marketPrice: 130,  unit: "kg",          image: "https://images.unsplash.com/photo-1603569283847-aa295f0d016a?w=500&auto=format&fit=crop" },
-  { id: 5,  name: "Cooking Oil 1 L",             category: "grocery",       price: 455,  profit: 40,  marketPrice: 495,  unit: "liter",       image: "https://images.unsplash.com/photo-1533050487297-09b450131914?w=500&auto=format&fit=crop" },
-  { id: 6,  name: "Refined Salt 1 kg",           category: "grocery",       price: 40,   profit: 5,   marketPrice: 45,   unit: "kg",          image: "https://images.unsplash.com/photo-1584735422189-080a0225d1b8?w=500&auto=format&fit=crop" },
-  { id: 7,  name: "Chickpeas Kabuli 1 kg",       category: "grocery",       price: 260,  profit: 25,  marketPrice: 285,  unit: "kg",          image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&auto=format&fit=crop" },
-  { id: 8,  name: "Maida 2 kg",                  category: "grocery",       price: 220,  profit: 18,  marketPrice: 238,  unit: "2 kg bag",    image: "https://images.unsplash.com/photo-1603569283847-aa295f0d016a?w=500&auto=format&fit=crop" },
+  // ========== GROCERY (Basic Food Items) ==========
+  { id: 1,  name: "Eggs (Dozen)",          category: "grocery",  price: 250,  image: "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?w=500&auto=format&fit=crop&q=80" },
+  { id: 2,  name: "Wheat Flour (10kg)",     category: "grocery",  price: 1500, image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&auto=format&fit=crop&q=80" },
+  { id: 3,  name: "Basmati Rice (5kg)",     category: "grocery",  price: 2200, image: "https://images.unsplash.com/photo-1547496502-affa22d38842?w=500&auto=format&fit=crop&q=80" },
+  { id: 4,  name: "Sugar (1kg)",           category: "grocery",  price: 120,  image: "https://images.unsplash.com/photo-1603569283847-aa295f0d016a?w=500&auto=format&fit=crop&q=80" },
+  { id: 5,  name: "Cooking Oil (1L)",       category: "grocery",  price: 455,  image: "https://images.unsplash.com/photo-1533050487297-09b450131914?w=500&auto=format&fit=crop&q=80" },
 
-  // ---------- SPICES ----------
-  { id: 9,  name: "Shan Biryani Masala 50 g",    category: "spices",        price: 120,  profit: 15,  marketPrice: 135,  unit: "packet",      image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&auto=format&fit=crop" },
-  { id: 10, name: "National Nihari Masala 43 g", category: "spices",        price: 100,  profit: 12,  marketPrice: 112,  unit: "packet",      image: "https://images.unsplash.com/photo-1603569283847-aa295f0d016a?w=500&auto=format&fit=crop" },
+  // ========== DAIRY (Milk, Cheese, Yogurt) ==========
+  { id: 6,  name: "Milk Pack (1L)",        category: "dairy",    price: 150,  image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=500&auto=format&fit=crop&q=80" },
+  { id: 7,  name: "Yogurt (1kg)",          category: "dairy",    price: 200,  image: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&auto=format&fit=crop&q=80" },
+  { id: 8,  name: "Cheese (1kg)",          category: "dairy",    price: 500,  image: "https://images.unsplash.com/photo-1611270633757-8c4e7e5685e1?w=500&auto=format&fit=crop&q=80" },
+  { id: 9,  name: "Butter (200g)",         category: "dairy",    price: 320,  image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop&q=80" },
 
-  // ---------- SNACKS ----------
-  { id: 11, name: "Dairy Milk Chocolate 38 g",   category: "snacks",        price: 100,  profit: 15,  marketPrice: 115,  unit: "bar",         image: "https://images.unsplash.com/photo-1575377427642-087cf684f29d?w=500&auto=format&fit=crop" },
-  { id: 12, name: "Lay's Masala Chips 65 g",     category: "snacks",        price: 70,   profit: 8,   marketPrice: 78,   unit: "pack",        image: "https://images.unsplash.com/photo-1566475950299-b6a9ef0e6b84?w=500&auto=format&fit=crop" },
-  { id: 13, name: "Sooper Biscuits 12‑pack",     category: "snacks",        price: 120,  profit: 12,  marketPrice: 132,  unit: "pack",        image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=500&auto=format&fit=crop" },
-  { id: 14, name: "Nimko Mix 200 g",             category: "snacks",        price: 160,  profit: 18,  marketPrice: 178,  unit: "pack",        image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&auto=format&fit=crop" },
-  { id: 15, name: "Candi Cookies 150 g",         category: "snacks",        price: 130,  profit: 15,  marketPrice: 145,  unit: "pack",        image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500&auto=format&fit=crop" },
+  // ========== SNACKS (Chips, Biscuits, Chocolate) ==========
+  { id: 10, name: "Lay's Chips (65g)",     category: "snacks",   price: 70,   image: "https://images.unsplash.com/photo-1566475950299-b6a9ef0e6b84?w=500&auto=format&fit=crop&q=80" },
+  { id: 11, name: "Biscuits (12-Pack)",    category: "snacks",   price: 120,  image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=500&auto=format&fit=crop&q=80" },
+  { id: 12, name: "Dairy Milk Chocolate",  category: "snacks",   price: 100,  image: "https://images.unsplash.com/photo-1575377427642-087cf684f29d?w=500&auto=format&fit=crop&q=80" },
 
-  // ---------- DAIRY ----------
-  { id: 16, name: "Nestlé Milk Pack 1 L",        category: "dairy",         price: 150,  profit: 10,  marketPrice: 160,  unit: "1 L",         image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=500&auto=format&fit=crop" },
-  { id: 17, name: "Olper's Milk 1 L",            category: "dairy",         price: 160,  profit: 12,  marketPrice: 172,  unit: "1 L",         image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=500&auto=format&fit=crop" },
-  { id: 18, name: "Plain Yogurt 1 kg",           category: "dairy",         price: 200,  profit: 20,  marketPrice: 220,  unit: "1 kg",        image: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&auto=format&fit=crop" },
-  { id: 19, name: "Cheddar Cheese 1 kg",         category: "dairy",         price: 500,  profit: 60,  marketPrice: 560,  unit: "1 kg",        image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=500&auto=format&fit=crop" },
-  { id: 20, name: "Salted Butter 200 g",         category: "dairy",         price: 320,  profit: 25,  marketPrice: 345,  unit: "200 g",       image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop" },
+  // ========== BEVERAGES (Tea, Cold Drinks, Juice) ==========
+  { id: 13, name: "Tapal Tea (390g)",      category: "beverages", price: 250, image: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=500&auto=format&fit=crop&q=80" },
+  { id: 14, name: "Pepsi (1.5L)",         category: "beverages", price: 180, image: "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500&auto=format&fit=crop&q=80" },
+  { id: 15, name: "Mango Juice (1L)",     category: "beverages", price: 260, image: "https://images.unsplash.com/photo-1551269901-5c5e14c25df7?w=500&auto=format&fit=crop&q=80" },
 
-  // ---------- BEVERAGES ----------
-  { id: 21, name: "Tapal Danedar Tea 390 g",     category: "beverages",     price: 250,  profit: 20,  marketPrice: 270,  unit: "pack",        image: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=500&auto=format&fit=crop" },
-  { id: 22, name: "Lipton Yellow Label 190 g",   category: "beverages",     price: 200,  profit: 18,  marketPrice: 218,  unit: "pack",        image: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=500&auto=format&fit=crop" },
-  { id: 23, name: "Pepsi 1.5 L Bottle",         category: "beverages",     price: 180,  profit: 15,  marketPrice: 195,  unit: "1.5 L",       image: "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500&auto=format&fit=crop" },
-  { id: 24, name: "Coca‑Cola 330 ml Can",        category: "beverages",     price: 60,   profit: 5,   marketPrice: 65,   unit: "330 ml",      image: "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500&auto=format&fit=crop" },
-  { id: 25, name: "Rooh Afza 800 ml",            category: "beverages",     price: 300,  profit: 25,  marketPrice: 325,  unit: "800 ml",      image: "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500&auto=format&fit=crop" },
-  { id: 26, name: "Tang Orange 500 g",           category: "beverages",     price: 290,  profit: 25,  marketPrice: 315,  unit: "jar",         image: "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500&auto=format&fit=crop" },
-  { id: 27, name: "Fruita Vitals Mango 1 L",     category: "beverages",     price: 260,  profit: 22,  marketPrice: 282,  unit: "1 L",         image: "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500&auto=format&fit=crop" },
+  // ========== PERSONAL CARE (Soap, Shampoo, Toothpaste) ==========
+  { id: 16, name: "Lux Soap",             category: "personal-care", price: 80,  image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=500&auto=format&fit=crop&q=80" },
+  { id: 17, name: "Colgate Toothpaste",   category: "personal-care", price: 140, image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop&q=80" },
+  { id: 18, name: "Dove Shampoo",         category: "personal-care", price: 400, image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=500&auto=format&fit=crop&q=80" },
 
-  // ---------- PERSONAL CARE ----------
-  { id: 28, name: "Lux Soap Bar",                category: "personal‑care", price: 80,   profit: 8,   marketPrice: 88,   unit: "bar",         image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=500&auto=format&fit=crop" },
-  { id: 29, name: "Lifebuoy Soap Bar",           category: "personal‑care", price: 75,   profit: 8,   marketPrice: 83,   unit: "bar",         image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=500&auto=format&fit=crop" },
-  { id: 30, name: "Head & Shoulders 200 ml",     category: "personal‑care", price: 250,  profit: 22,  marketPrice: 272,  unit: "200 ml",      image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=500&auto=format&fit=crop" },
-  { id: 31, name: "Colgate Toothpaste 100 g",    category: "personal‑care", price: 140,  profit: 14,  marketPrice: 154,  unit: "100 g",       image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop" },
-  { id: 32, name: "Dove Body Wash 250 ml",       category: "personal‑care", price: 400,  profit: 35,  marketPrice: 435,  unit: "250 ml",      image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=500&auto=format&fit=crop" },
-  { id: 33, name: "Sunsilk Conditioner 180 ml",  category: "personal‑care", price: 220,  profit: 20,  marketPrice: 240,  unit: "180 ml",      image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=500&auto=format&fit=crop" },
-  { id: 34, name: "Fair & Lovely Cream 25 g",    category: "personal‑care", price: 120,  profit: 12,  marketPrice: 132,  unit: "25 g",        image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=500&auto=format&fit=crop" },
-
-  // ---------- CLEANING ----------
-  { id: 35, name: "Surf Excel Detergent 1 kg",   category: "cleaning",      price: 300,  profit: 28,  marketPrice: 328,  unit: "1 kg",        image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop" },
-  { id: 36, name: "Ariel Washing Powder 1 kg",   category: "cleaning",      price: 280,  profit: 25,  marketPrice: 305,  unit: "1 kg",        image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop" },
-  { id: 37, name: "Dettol Antiseptic 250 ml",    category: "cleaning",      price: 180,  profit: 15,  marketPrice: 195,  unit: "250 ml",      image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop" },
-  { id: 38, name: "Harpic Cleaner 500 ml",       category: "cleaning",      price: 150,  profit: 14,  marketPrice: 164,  unit: "500 ml",      image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop" },
-
-  // ---------- FROZEN ----------
-  { id: 39, name: "K&N's Nuggets 750 g",         category: "frozen",        price: 550,  profit: 50,  marketPrice: 600,  unit: "750 g",       image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&auto=format&fit=crop" },
-  { id: 40, name: "Sabroso Pops 700 g",          category: "frozen",        price: 520,  profit: 48,  marketPrice: 568,  unit: "700 g",       image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&auto=format&fit=crop" },
-
-  // ---------- HOME ESSENTIALS ----------
-  { id: 41, name: "Rose Petal Tissue Roll",      category: "home‑essentials", price: 80,  profit: 8,   marketPrice: 88,   unit: "roll",        image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop" },
-  { id: 42, name: "Matchbox 12‑Pack",            category: "home‑essentials", price: 60,  profit: 6,   marketPrice: 66,   unit: "box",         image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop" },
-  { id: 43, name: "LED Bulb 12 W",               category: "home‑essentials", price: 350, profit: 30,  marketPrice: 380,  unit: "piece",       image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop" },
-
-  // ---------- BABY CARE ----------
-  { id: 44, name: "Pampers Small 36 pcs",        category: "baby‑care",      price: 820, profit: 70,  marketPrice: 890,  unit: "36 pcs",      image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop" },
-
-  // ---------- CONDIMENTS ----------
-  { id: 45, name: "Mitchell's Ketchup 500 g",    category: "condiments",     price: 200, profit: 18,  marketPrice: 218,  unit: "500 g",       image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop" },
-  { id: 46, name: "Shezan Chili Garlic 300 g",   category: "condiments",     price: 230, profit: 20,  marketPrice: 250,  unit: "300 g",       image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop" },
-
-  // ---------- BAKERY & MISC ----------
-  { id: 47, name: "Dawn Bread Loaf",             category: "bakery",         price: 120, profit: 10,  marketPrice: 130,  unit: "loaf",         image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop" },
-  { id: 48, name: "Candles Pack of 6",           category: "home‑essentials", price: 100, profit: 10, marketPrice: 110,  unit: "pack",        image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop" },
-
-  // ---------- DAIRY SPECIAL ----------
-  { id: 49, name: "Olper's Cream 200 ml",        category: "dairy",          price: 170, profit: 12,  marketPrice: 182,  unit: "200 ml",      image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop" },
-
-  // ---------- SOFT DRINK ----------
-  { id: 50, name: "Cola Next 500 ml",            category: "beverages",      price: 50,  profit: 5,   marketPrice: 55,   unit: "500 ml",      image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop" }
+  // ========== CLEANING (Detergent, Floor Cleaner) ==========
+  { id: 19, name: "Surf Excel (1kg)",     category: "cleaning",  price: 300, image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop&q=80" },
+  { id: 20, name: "Harpic (500ml)",       category: "cleaning",  price: 150, image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop&q=80" }
 ];
 
 
