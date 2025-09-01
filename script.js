@@ -1,35 +1,39 @@
 const products = [
   // ========== GROCERY (Basic Food Items) ==========
-  { id: 1,  name: "Eggs (Dozen)",          category: "grocery",  price: 250,  image: "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?w=500&auto=format&fit=crop&q=80" },
-  { id: 2,  name: "Wheat Flour (10kg)",     category: "grocery",  price: 1500, image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&auto=format&fit=crop&q=80" },
-  { id: 3,  name: "Basmati Rice (5kg)",     category: "grocery",  price: 2200, image: "https://images.unsplash.com/photo-1547496502-affa22d38842?w=500&auto=format&fit=crop&q=80" },
-  { id: 4,  name: "Sugar (1kg)",           category: "grocery",  price: 120,  image: "https://images.unsplash.com/photo-1603569283847-aa295f0d016a?w=500&auto=format&fit=crop&q=80" },
-  { id: 5,  name: "Cooking Oil (1L)",       category: "grocery",  price: 455,  image: "https://images.unsplash.com/photo-1533050487297-09b450131914?w=500&auto=format&fit=crop&q=80" },
+  { id: 1,  name: "Eggs (Dozen)",          category: "grocery",  price: 260,  image: "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?w=500" },
+  { id: 2,  name: "Wheat Flour (10kg)",     category: "grocery",  price: 1650, image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500" },
+  { id: 3,  name: "Basmati Rice (5kg)",     category: "grocery",  price: 2400, image: "https://images.unsplash.com/photo-1547496502-affa22d38842?w=500" },
+  { id: 4,  name: "Sugar (1kg)",            category: "grocery",  price: 140,  image: "https://images.unsplash.com/photo-1603569283847-aa295f0d016a?w=500" },
+  { id: 5,  name: "Cooking Oil (1L)",       category: "grocery",  price: 480,  image: "https://images.unsplash.com/photo-1533050487297-09b450131914?w=500" },
+  { id: 6,  name: "Salt (1kg)",             category: "grocery",  price: 70,   image: "https://images.unsplash.com/photo-1615484477779-1d0c39fb8d49?w=500" },
 
-  // ========== DAIRY (Milk, Cheese, Yogurt) ==========
-  { id: 6,  name: "Milk Pack (1L)",        category: "dairy",    price: 150,  image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=500&auto=format&fit=crop&q=80" },
-  { id: 7,  name: "Yogurt (1kg)",          category: "dairy",    price: 200,  image: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&auto=format&fit=crop&q=80" },
-  { id: 8,  name: "Cheese (1kg)",          category: "dairy",    price: 500,  image: "https://images.unsplash.com/photo-1611270633757-8c4e7e5685e1?w=500&auto=format&fit=crop&q=80" },
-  { id: 9,  name: "Butter (200g)",         category: "dairy",    price: 320,  image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop&q=80" },
+  // ========== DAIRY ==========
+  { id: 7,  name: "Milk Pack (1L)",        category: "dairy",    price: 170,  image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=500" },
+  { id: 8,  name: "Yogurt (1kg)",          category: "dairy",    price: 220,  image: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=500" },
+  { id: 9,  name: "Cheese Slice Pack",     category: "dairy",    price: 550,  image: "https://images.unsplash.com/photo-1611270633757-8c4e7e5685e1?w=500" },
+  { id: 10, name: "Butter (200g)",         category: "dairy",    price: 340,  image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500" },
 
-  // ========== SNACKS (Chips, Biscuits, Chocolate) ==========
-  { id: 10, name: "Lay's Chips (65g)",     category: "snacks",   price: 70,   image: "https://images.unsplash.com/photo-1566475950299-b6a9ef0e6b84?w=500&auto=format&fit=crop&q=80" },
-  { id: 11, name: "Biscuits (12-Pack)",    category: "snacks",   price: 120,  image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=500&auto=format&fit=crop&q=80" },
-  { id: 12, name: "Dairy Milk Chocolate",  category: "snacks",   price: 100,  image: "https://images.unsplash.com/photo-1575377427642-087cf684f29d?w=500&auto=format&fit=crop&q=80" },
+  // ========== SNACKS ==========
+  { id: 11, name: "Lay's Chips (65g)",     category: "snacks",   price: 80,   image: "https://images.unsplash.com/photo-1566475950299-b6a9ef0e6b84?w=500" },
+  { id: 12, name: "Biscuits (12-Pack)",    category: "snacks",   price: 140,  image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=500" },
+  { id: 13, name: "Dairy Milk Chocolate",  category: "snacks",   price: 120,  image: "https://images.unsplash.com/photo-1575377427642-087cf684f29d?w=500" },
+  { id: 14, name: "Wafers (Family Pack)",  category: "snacks",   price: 200,  image: "https://images.unsplash.com/photo-1526081347589-7d8e1b04e0a0?w=500" },
 
-  // ========== BEVERAGES (Tea, Cold Drinks, Juice) ==========
-  { id: 13, name: "Tapal Tea (390g)",      category: "beverages", price: 250, image: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=500&auto=format&fit=crop&q=80" },
-  { id: 14, name: "Pepsi (1.5L)",         category: "beverages", price: 180, image: "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500&auto=format&fit=crop&q=80" },
-  { id: 15, name: "Mango Juice (1L)",     category: "beverages", price: 260, image: "https://images.unsplash.com/photo-1551269901-5c5e14c25df7?w=500&auto=format&fit=crop&q=80" },
+  // ========== BEVERAGES ==========
+  { id: 15, name: "Tapal Tea (390g)",      category: "beverages", price: 280, image: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=500" },
+  { id: 16, name: "Pepsi (1.5L)",         category: "beverages", price: 200, image: "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500" },
+  { id: 17, name: "Sprite (1.5L)",        category: "beverages", price: 200, image: "https://images.unsplash.com/photo-1596662951482-ef39eeb5c0f8?w=500" },
+  { id: 18, name: "Mango Juice (1L)",     category: "beverages", price: 280, image: "https://images.unsplash.com/photo-1551269901-5c5e14c25df7?w=500" },
 
-  // ========== PERSONAL CARE (Soap, Shampoo, Toothpaste) ==========
-  { id: 16, name: "Lux Soap",             category: "personal-care", price: 80,  image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=500&auto=format&fit=crop&q=80" },
-  { id: 17, name: "Colgate Toothpaste",   category: "personal-care", price: 140, image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop&q=80" },
-  { id: 18, name: "Dove Shampoo",         category: "personal-care", price: 400, image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=500&auto=format&fit=crop&q=80" },
+  // ========== PERSONAL CARE ==========
+  { id: 19, name: "Lux Soap",             category: "personal-care", price: 90,  image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=500" },
+  { id: 20, name: "Colgate Toothpaste",   category: "personal-care", price: 160, image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500" },
+  { id: 21, name: "Dove Shampoo (200ml)", category: "personal-care", price: 420, image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=500" },
 
-  // ========== CLEANING (Detergent, Floor Cleaner) ==========
-  { id: 19, name: "Surf Excel (1kg)",     category: "cleaning",  price: 300, image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop&q=80" },
-  { id: 20, name: "Harpic (500ml)",       category: "cleaning",  price: 150, image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500&auto=format&fit=crop&q=80" }
+  // ========== CLEANING ==========
+  { id: 22, name: "Surf Excel (1kg)",     category: "cleaning",  price: 320, image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500" },
+  { id: 23, name: "Harpic (500ml)",       category: "cleaning",  price: 170, image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=500" },
+  { id: 24, name: "Dettol Liquid (250ml)", category: "cleaning", price: 230, image: "https://images.unsplash.com/photo-1615484477779-1d0c39fb8d49?w=500" }
 ];
 
 
